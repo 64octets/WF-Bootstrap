@@ -1,0 +1,19 @@
+{
+  "DEVELOPMENT_MODE"  : 1,
+  "COMPILE_CSS_PATH"  : "/style.css",
+  "LESS_PATH"         : "/css/main.less",
+  "COMPILE_JS_PATH"   : "/js/main-compiled.js",
+  "REQUIRE_PATH"      : "/js/main.js",
+  "FONTAWESOME_PATH"  : "/css/lib/font-awesome",
+
+  "USE_JQUERY_2x"     : 1,
+
+  "THEME_NAME"        : "",
+  "AUTHOR"            : "",
+  "SLUG"              : "",
+  "THEME_URI"         : "",
+  "AUTHOR_URI"        : "",
+  "DESCRIPTION"       : "",
+  "VERSION"           : 1.0,
+  "TEXT_DOMAIN"       : ""
+}

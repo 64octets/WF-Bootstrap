@@ -1,0 +1,17 @@
+{
+  "name": "wf_setup",
+  "version": "1.0.0",
+  "description": "Additional Assets required by White Fire",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe Buckle",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-less": "^1.3.0",
+    "grunt-contrib-requirejs": "^1.0.0",
+    "grunt-prepend": "0.1.0"
+  }
+}
