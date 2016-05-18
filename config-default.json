@@ -1,10 +1,23 @@
 {
   "DEVELOPMENT_MODE"  : 1,
   "COMPILE_CSS_PATH"  : "/style.css",
+  "WYSIWYG_CSS_PATH"  : "",
   "LESS_PATH"         : "/css/main.less",
+  "WYSIWYG_LESS_PATH" : "",
   "COMPILE_JS_PATH"   : "/js/main-compiled.js",
   "REQUIRE_PATH"      : "/js/main.js",
   "FONTAWESOME_PATH"  : "/css/lib/font-awesome",
+
+  "REQUIREJS_OPTS"    : {
+    "baseUrl": "../../js",
+    "paths" : {
+      "requireLib"      : "lib/requirejs/require",
+    },
+    "name": "main",
+    "findNestedDependencies": true,
+    "include": [ "requireLib" ],
+    "out": "../../js/main-compiled.js"
+  },
 
   "USE_JQUERY_2x"     : 1,
 

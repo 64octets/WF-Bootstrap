@@ -5,14 +5,20 @@ module.exports = function(grunt) {
     /**
      * Css Vars
      */
-    var compile_css_path    = '../..' + wf_config.COMPILE_CSS_PATH,
+    var compile_css_path    = '../..' + wf_config.COMPILE_CSS_PATH, 
+        wysiwyg_css_path    = '../..' + wf_config.WYSIWYG_CSS_PATH
         less_path           = '../..' + wf_config.LESS_PATH,
+        wysiwyg_path        = '../..' + wf_config.WYSIWYG_LESS_PATH,
         fontawesome_fontpath= '\'' + wf_config.FONTAWESOME_PATH.substring(1) + '/fonts\'',
         
         lessc_files         = {};
     
     lessc_files[compile_css_path] = less_path;
+    lessc_files[wysiwyg_css_path] = wysiwyg_path;
 
+    /**
+     * Prepend / Append files
+     */
     var prependThis  = '/* \n' +
             'Theme Name: '+wf_config.THEME_NAME +'\n' +
             'Author: '+wf_config.AUTHOR+ '\n' +
@@ -26,6 +32,11 @@ module.exports = function(grunt) {
     var appendThis  = '/* \n' +
             'Compiled on ' + date + '\n'+
         '*/';
+
+    /**
+     * Requirejs Options
+     */
+    var requirejsOptions    = wf_config.REQUIREJS_OPTS;
 
     grunt.initConfig({ 
         pkg: grunt.file.readJSON('package.json'),
@@ -56,20 +67,7 @@ module.exports = function(grunt) {
          */
         requirejs: {
             compile: {
-                options: {
-                    baseUrl: '../../js',
-                    mainConfigFile: '../../js/build.js',
-                    paths : {
-                        requireLib      : 'lib/requirejs/require',
-                        smoothstate     : 'lib/smoothstate/src/jquery.smoothState',
-                        enquire         : 'lib/enquire/dist/enquire',
-                        matchHeight     : 'lib/matchHeight/jquery.matchHeight'                        
-                    },
-                    name: 'main',
-                    findNestedDependencies: true,
-                    include: [ 'requireLib' ],
-                    out: '../../js/main-compiled.js'
-                }
+                options: requirejsOptions
             }
         },
         
@@ -80,6 +78,8 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     src     : '../../style.css'
+                }, {
+                    src     : '../../js/main-compiled.js'
                 }]
             },
             append : {
@@ -88,6 +88,8 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     src     : '../../style.css'
+                }, {
+                    src     : '../../js/main-compiled.js'
                 }]
             }
         }
