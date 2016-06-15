@@ -9,6 +9,6 @@ Steps
 
 3) run npm install
 
-4) Check config (config-default.json)
+4) Create config.json file. Either create new config or copy from config-default.json
 
 5) open functions.php, add include_once('WF-Boostrap/init.php');
