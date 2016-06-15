@@ -1,9 +1,9 @@
 {
   "DEVELOPMENT_MODE"  : 1,
   "COMPILE_CSS_PATH"  : "/style.css",
-  "WYSIWYG_CSS_PATH"  : "",
+  "WYSIWYG_CSS_PATH"  : false,
   "LESS_PATH"         : "/css/main.less",
-  "WYSIWYG_LESS_PATH" : "",
+  "WYSIWYG_LESS_PATH" : false,
   "COMPILE_JS_PATH"   : "/js/main-compiled.js",
   "REQUIRE_PATH"      : "/js/main.js",
   "FONTAWESOME_PATH"  : "/css/lib/font-awesome",

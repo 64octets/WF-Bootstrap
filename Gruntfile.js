@@ -5,16 +5,20 @@ module.exports = function(grunt) {
     /**
      * Css Vars
      */
-    var compile_css_path    = '../..' + wf_config.COMPILE_CSS_PATH, 
-        wysiwyg_css_path    = '../..' + wf_config.WYSIWYG_CSS_PATH
-        less_path           = '../..' + wf_config.LESS_PATH,
-        wysiwyg_path        = '../..' + wf_config.WYSIWYG_LESS_PATH,
+    var compile_css_path    = '..' + wf_config.COMPILE_CSS_PATH, 
+        wysiwyg_css_path    = '..' + wf_config.WYSIWYG_CSS_PATH
+        less_path           = '..' + wf_config.LESS_PATH,
+        wysiwyg_path        = '..' + wf_config.WYSIWYG_LESS_PATH,
         fontawesome_fontpath= '\'' + wf_config.FONTAWESOME_PATH.substring(1) + '/fonts\'',
         
         lessc_files         = {};
     
-    lessc_files[compile_css_path] = less_path;
-    lessc_files[wysiwyg_css_path] = wysiwyg_path;
+    if(less_path && less_path!=='') {
+        lessc_files[compile_css_path] = less_path;
+    }
+    if(wysiwyg_path && wysiwyg_path!=='') {
+        lessc_files[wysiwyg_css_path] = wysiwyg_path;
+    }
 
     /**
      * Prepend / Append files
@@ -47,7 +51,7 @@ module.exports = function(grunt) {
         less: {
             production: {
                 options: {
-                    paths: ['../../css'],
+                    paths: ['../css'],
                     plugins: [
                         new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]}),
                         new (require('less-plugin-clean-css'))({
@@ -77,9 +81,9 @@ module.exports = function(grunt) {
                     content: prependThis
                 },
                 files: [{
-                    src     : '../../style.css'
+                    src     : '../style.css'
                 }, {
-                    src     : '../../js/main-compiled.js'
+                    src     : '../js/main-compiled.js'
                 }]
             },
             append : {
@@ -87,9 +91,9 @@ module.exports = function(grunt) {
                     content: appendThis
                 },
                 files: [{
-                    src     : '../../style.css'
+                    src     : '../style.css'
                 }, {
-                    src     : '../../js/main-compiled.js'
+                    src     : '../js/main-compiled.js'
                 }]
             }
         }
