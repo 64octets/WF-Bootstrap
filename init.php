@@ -13,7 +13,7 @@ include_once(__DIR__ . '/use/_move_array_element.php');
  */
 $config                     = get_transient('wf_config');
 $config_created_date        = get_option('wf_config_transient_created');
-$config_file_relpath        = get_stylesheet_directory() . '/functions/WF/config.json';
+$config_file_relpath        = __DIR__ . '/config.json';
 $config_file_modified_date  = filemtime($config_file_relpath);
 
 // Set config to false forcing it to recreate if
